@@ -1,0 +1,67 @@
+article.body {
+    background-color: white;
+    max-width: 500px;
+    max-height: max-content;
+}
+
+div.header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+p.name {
+    width: 413px;
+    height: 140px;
+    left: 5px;
+    top: -7px;
+
+    font-family: 'Bona Nova', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 43px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #65412C;
+}
+
+div.info {
+    width: 395px;
+    height: 90px;
+    left: 51px;
+    top: 117px;
+
+    font-family: 'Nova Cut', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.3em;
+
+    color: #000000;
+}
+
+div.authorization {
+    display: flex;
+    flex-direction: column;
+    background: #43707E;
+    align-items: center;
+}
+
+.button {
+    width: 237px;
+    height: 46px;
+    left: 89px;
+    top: 770px;
+
+    background: #FFFFFF;
+    border-radius: 23px;
+}
+
+a.authorization-text {
+    text-align: center;
+}
+

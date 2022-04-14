@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link th:href="@{/styles/starting-page.css}" rel="stylesheet" />
+</head>
+<body>
+<article class="body">
+    <div class="header">
+        <p class="name">
+            Кофейня «Бодрый день» ☕
+            Peppy day ☕
+        </p>
+    </div>
+    <div class="info">
+        📞 8-996-414-43-85  <br>
+        📌 г.Екатеринбург, 8 марта, 173
+    </div>
+    <div class="authorization">
+        <div class="authorization description">
+            Вкусный кофе и правильная выпечка
+        </div>
+        <button class="authorization button">
+            <a class="authorization-text">Зарегистрироваться</a>
+        </button>
+        <button class="authorization button">
+            <a class="authorization-text">Войти</a>
+        </button>
+        <button class="authorization button">
+            <a class="authorization-text" href="/coffee/menu">Посмотреть меню</a>
+        </button>
+    </div>
+</article>
+</body>
+</html>

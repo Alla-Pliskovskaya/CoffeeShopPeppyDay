@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link th:href="@{/styles/starting-page.css}" rel="stylesheet" />
+</head>
+<body>
+<article class="body">
+    <div class="header">
+        <p class="name">
+            Меню 📝
+        </p>
+    </div>
+    <div class="authorization">
+        <button class="authorization button">
+            <a class="authorization-text" href="/coffee/menu/drinks">Кофе и напитки</a>
+        </button>
+        <button class="authorization button">
+            <a class="authorization-text" href="/coffee/menu/bakery">Выпечка</a>
+        </button>
+    </div>
+</article>
+</body>
+</html>

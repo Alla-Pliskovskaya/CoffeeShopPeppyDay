@@ -7,6 +7,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CoffeeController {
@@ -20,11 +22,27 @@ public class CoffeeController {
     private CoffeeAdditiveRepository additiveRepository;
     @Autowired
     private BakeryRepository bakeryRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/coffee")
     public String coffee(Model model) {
         model.addAttribute("title", "Coffee Shop");
         return "coffee";
+    }
+
+    @GetMapping("/coffee/registry")
+    public String registry(Model model)
+    {
+        return "registry";
+    }
+
+    @PostMapping("/coffee/registry")
+    public String doRegistry(@RequestParam String login, @RequestParam String password, @RequestParam String full_name, Model model)
+    {
+        User user = new User(login, password, full_name);
+        userRepository.save(user);
+        return "redirect:/coffee";
     }
 
     @GetMapping("/coffee/menu")

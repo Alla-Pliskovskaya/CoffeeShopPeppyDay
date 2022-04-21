@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link th:href="@{/styles/starting-page.css}" rel="stylesheet" />
+    <link th:href="@{/styles/menu.css}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -16,12 +16,14 @@
     </div>
     <div class="authorization">
         <button class="authorization button">
-            <a class="authorization-text" href="/coffee/menu/drinks">Кофе и напитки</a>
+            <a class="authorization-text" href="/menu/drinks">Кофе и напитки</a>
         </button>
         <button class="authorization button">
-            <a class="authorization-text" href="/coffee/menu/bakery">Выпечка</a>
+            <a class="authorization-text" href="/menu/bakery">Выпечка</a>
         </button>
     </div>
+    <img class="image-menu" th:src="@{/images/menu.jpg}" alt="menu" src="">
 </article>
+<div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>

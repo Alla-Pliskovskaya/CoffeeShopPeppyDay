@@ -2,7 +2,6 @@ package com.itproger.blog.controllers;
 
 import com.itproger.blog.models.Post;
 import com.itproger.blog.repo.PostRepository;
-import net.bytebuddy.implementation.bytecode.collection.ArrayLength;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +14,22 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Controller
-public class BlogController {
-
+public class BlogController
+{
     @Autowired
     private PostRepository postRepository;
+
+    @GetMapping("/home")
+    public String home(Model model) {
+        model.addAttribute("title", "Main page");
+        return "home";
+    }
+
+    @GetMapping("/about")
+    public String about(Model model) {
+        model.addAttribute("title", "Page about us");
+        return "about";
+    }
 
     @GetMapping("/blog")
     public String blogMain(Model model)

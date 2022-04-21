@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class CoffeeController {
+public class CoffeeController
+{
     @Autowired
     private CoffeeRepository coffeeRepository;
     @Autowired
@@ -25,33 +26,27 @@ public class CoffeeController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/coffee")
-    public String coffee(Model model) {
-        model.addAttribute("title", "Coffee Shop");
-        return "coffee";
-    }
-
-    @GetMapping("/coffee/registry")
+    @GetMapping("/registry")
     public String registry(Model model)
     {
         return "registry";
     }
 
-    @PostMapping("/coffee/registry")
+    @PostMapping("/registry")
     public String doRegistry(@RequestParam String login, @RequestParam String password, @RequestParam String full_name, Model model)
     {
         User user = new User(login, password, full_name);
         userRepository.save(user);
-        return "redirect:/coffee";
+        return "redirect:/";
     }
 
-    @GetMapping("/coffee/menu")
+    @GetMapping("/menu")
     public String coffeeMenu(Model model) {
         model.addAttribute("title", "Menu");
         return "menu";
     }
 
-    @GetMapping("/coffee/menu/drinks")
+    @GetMapping("/menu/drinks")
     public String drinksMenu(Model model)
     {
         Iterable<Coffee> coffees = coffeeRepository.findAll();
@@ -65,7 +60,7 @@ public class CoffeeController {
         return "drinks";
     }
 
-    @GetMapping("/coffee/menu/bakery")
+    @GetMapping("/menu/bakery")
     public String bakeryMenu(Model model)
     {
         Iterable<Bakery> bakery = bakeryRepository.findAll();

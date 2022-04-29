@@ -7,8 +7,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CoffeeController
@@ -23,26 +21,11 @@ public class CoffeeController
     private CoffeeAdditiveRepository additiveRepository;
     @Autowired
     private BakeryRepository bakeryRepository;
-    @Autowired
-    private UserRepository userRepository;
-
-    @GetMapping("/registry")
-    public String registry(Model model)
-    {
-        return "registry";
-    }
-
-    @PostMapping("/registry")
-    public String doRegistry(@RequestParam String login, @RequestParam String password, @RequestParam String full_name, Model model)
-    {
-        User user = new User(login, password, full_name);
-        userRepository.save(user);
-        return "redirect:/";
-    }
 
     @GetMapping("/menu")
     public String coffeeMenu(Model model) {
         model.addAttribute("title", "Menu");
+
         return "menu";
     }
 
@@ -57,6 +40,7 @@ public class CoffeeController
         model.addAttribute("coffees", coffees);
         model.addAttribute("volumes", volumes);
         model.addAttribute("prices", prices);
+
         return "drinks";
     }
 
@@ -65,7 +49,7 @@ public class CoffeeController
     {
         Iterable<Bakery> bakery = bakeryRepository.findAll();
         model.addAttribute("bakery", bakery);
+
         return "bakery";
     }
-
 }

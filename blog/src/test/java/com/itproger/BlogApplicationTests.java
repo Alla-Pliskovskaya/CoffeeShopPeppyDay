@@ -1,4 +1,4 @@
-package com.itproger.blog;
+package com.itproger;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

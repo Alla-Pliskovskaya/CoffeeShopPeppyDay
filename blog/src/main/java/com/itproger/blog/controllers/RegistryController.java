@@ -29,6 +29,6 @@ public class RegistryController
         AppUser user = new AppUser(login, encryptedPassword, full_name);
         userRepository.save(user);
 
-        return "redirect:/";
+        return "registrySuccessful";
     }
 }

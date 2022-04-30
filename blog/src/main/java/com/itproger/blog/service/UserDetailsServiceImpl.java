@@ -2,9 +2,10 @@ package com.itproger.blog.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.itproger.blog.models.AppUser;
+
 import com.itproger.blog.DAO.AppRoleDAO;
 import com.itproger.blog.DAO.AppUserDAO;
+import com.itproger.blog.models.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

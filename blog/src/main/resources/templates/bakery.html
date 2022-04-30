@@ -12,19 +12,23 @@
     <h1>Меню выпечки</h1>
     <div class="alert mt2 bakery">
         <img class="image-bakery" th:src="@{/images/bakery.jpg}" alt="bakery" src="">
-        <table class="bakery-table">
-            <tr>
-                <th>Номер</th>
-                <th>Выпечка</th>
-                <th>Цена, ₽</th>
-                <th>Калорийность на 100 грамм</th>
-            </tr>
-            <tr th:each="bk : ${bakery}">
-                <td th:text="${bk.getId()}"></td>
-                <td th:text="${bk.getBakeryName()}"></td>
-                <td th:text="${bk.getBakeryPrice()}"></td>
-                <td th:text="${bk.getCalories()}"></td>
-            </tr>
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Номер</th>
+                    <th scope="col">Выпечка</th>
+                    <th scope="col">Цена, ₽</th>
+                    <th scope="col">Калорийность на 100 грамм</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="bk : ${bakery}">
+                    <td th:text="${bk.getId()}"></td>
+                    <td th:text="${bk.getBakeryName()}"></td>
+                    <td th:text="${bk.getBakeryPrice()}"></td>
+                    <td th:text="${bk.getCalories()}"></td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>

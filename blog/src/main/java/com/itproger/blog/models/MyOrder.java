@@ -7,7 +7,7 @@ public class MyOrder
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long order_id;
+    private Long orderId;
 
     private String login, coffee,volume, additive, bakery, date_time;
 
@@ -25,12 +25,12 @@ public class MyOrder
         this.date_time = date_time;
     }
 
-    public Long getOrder_id() {
-        return order_id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(Long order_id) {
-        this.order_id = order_id;
+    public void setOrderId(Long order_id) {
+        this.orderId = order_id;
     }
 
     public String getLogin() {

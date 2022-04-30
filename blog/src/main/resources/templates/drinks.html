@@ -12,38 +12,46 @@
     <h1>Меню напитков</h1>
     <div class="alert mt2 drinks">
         <img class="image-drinks" th:src="@{/images/drinks.jpg}" alt="drinks" src="">
-    <table class="drink-table">
-        <tr>
-            <th>Номер</th>
-            <th>Название напитка</th>
-            <th>Размер стаканчика</th>
-            <th>Цена, ₽</th>
-        </tr>
-        <tr th:each="coffee : ${coffees}">
-            <td th:text="${coffee.getId()}"></td>
-            <td th:text="${coffee.getCoffeeName()}"></td>
-            <td><span th:text="${volumes[0].getVolume()}"></span> /
-                <span th:text="${volumes[1].getVolume()}"></span>
-            </td>
-            <td><span th:text="${prices[coffee.getId()-1].getCoffeePrice()}"></span> /
-                <span th:text="${prices[coffee.getId()+9].getCoffeePrice()}"></span>
-            </td>
-        </tr>
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Номер</th>
+                <th scope="col">Название напитка</th>
+                <th scope="col">Размер стаканчика</th>
+                <th scope="col">Цена, ₽</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="coffee : ${coffees}">
+                <td th:text="${coffee.getId()}"></td>
+                <td th:text="${coffee.getCoffeeName()}"></td>
+                <td><span th:text="${volumes[0].getVolume()}"></span> /
+                    <span th:text="${volumes[1].getVolume()}"></span>
+                </td>
+                <td><span th:text="${prices[coffee.getId()-1].getCoffeePrice()}"></span> /
+                    <span th:text="${prices[coffee.getId()+9].getCoffeePrice()}"></span>
+                </td>
+            </tr>
+        <tbody>
     </table>
     </div>
     <div class="alert mt2 additives">
         <img class="image-additives" th:src="@{/images/additives.jpg}" alt="additives" src="">
-        <table class="additives-table">
-            <tr>
-                <th>Номер</th>
-                <th>Добавка к напитку</th>
-                <th>Цена, ₽</th>
-            </tr>
-            <tr th:each="add : ${additives}">
-                <td th:text="${add.getId()}"></td>
-                <td th:text="${add.getAdditiveName()}"></td>
-                <td th:text="${add.getAdditivePrice()}"></td>
-            </tr>
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Номер</th>
+                    <th scope="col">Добавка к напитку</th>
+                    <th scope="col">Цена, ₽</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="add : ${additives}">
+                    <td th:text="${add.getId()}"></td>
+                    <td th:text="${add.getAdditiveName()}"></td>
+                    <td th:text="${add.getAdditivePrice()}"></td>
+                </tr>
+            <tbody>
         </table>
     </div>
 </div>

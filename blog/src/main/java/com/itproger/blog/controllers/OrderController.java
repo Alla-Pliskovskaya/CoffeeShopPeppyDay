@@ -3,12 +3,12 @@ package com.itproger.blog.controllers;
 import com.itproger.blog.models.*;
 import com.itproger.blog.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -47,6 +47,15 @@ public class OrderController {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         MyOrder order = new MyOrder(login, coffee, volume, additive, bakery, formatter.format(date_time));
         orderRepository.save(order);
-        return "redirect:/successful_order";
+        return "successfulOrder";
+    }
+
+    @GetMapping("/orders")
+    public String watchOrders(Model model)
+    {
+        Iterable<MyOrder> orders = orderRepository.findAll(Sort.by(Sort.Direction.DESC,("orderId")));
+        model.addAttribute("orders", orders);
+
+        return "orders";
     }
 }

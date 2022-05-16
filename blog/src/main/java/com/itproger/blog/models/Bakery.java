@@ -11,7 +11,6 @@ public class Bakery
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String bakeryName;
     private double bakeryPrice;
     private int calories;

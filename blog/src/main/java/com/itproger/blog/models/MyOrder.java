@@ -8,9 +8,7 @@ public class MyOrder
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long orderId;
-
     private String login, coffee,volume, additive, bakery, date_time;
-
 
     public MyOrder() {
 

@@ -9,7 +9,6 @@ public class CoffeePrice
     @EmbeddedId
     @GeneratedValue(strategy = GenerationType.AUTO)
     private PriceId id;
-
     private double coffeePrice;
 
     public CoffeePrice(double coffeePrice) {

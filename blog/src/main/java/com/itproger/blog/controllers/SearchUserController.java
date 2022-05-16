@@ -17,19 +17,23 @@ public class SearchUserController
     private UserRepository userRepository;
 
     @GetMapping("/users")
-    public String userSearch(Model model) {
-
+    public String userSearch(Model model)
+    {
         model.addAttribute("user", new AppUser());
 
         return "userSearch";
     }
 
     @PostMapping("/users")
-    public String userSearch(AppUser user, Model model, @RequestParam String login) {
-
+    public String userSearch(AppUser user, Model model, @RequestParam String login)
+    {
+        long startTime = System.nanoTime();
         List<AppUser> foundUsers = userRepository.findAppUserByLogin(login);
         System.out.println(foundUsers);
         model.addAttribute("foundUsers", foundUsers);
+        long endTime = System.nanoTime();
+        double time = (double) (endTime-startTime) / 1000000;
+        System.out.println("Total execution time: " + time + " ms");
         return "userSearch";
     }
 }

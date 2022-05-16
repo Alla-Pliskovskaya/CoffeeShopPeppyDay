@@ -11,7 +11,6 @@ public class CoffeeAdditive
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String additiveName;
     private double additivePrice;
 
